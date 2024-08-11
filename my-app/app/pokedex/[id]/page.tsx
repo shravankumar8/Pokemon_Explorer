@@ -59,8 +59,8 @@ const Pokemonhero = ({ params }: { params: { id: string } }) => {
     );
   }
   return (
-    <div className="mx-20 flex flex-col items-center   justify-center w-[80%] ">
-      <div className="text-black my-6 flex  justify-between gap-6 mb-[-40px] text-3xl">
+    <div className="mx-20 mb-16 flex flex-col items-center ">
+      <div className="text-black py-6 flex  justify-between gap-6 mb-[-40px] text-3xl">
         <div>{pokeData.name?.toUpperCase()}</div>
         <div className="text-gray-500">#{pokeData.id}</div>
       </div>
@@ -138,8 +138,8 @@ const Pokemonhero = ({ params }: { params: { id: string } }) => {
         </div>
       </div>
 
-      <div className=" mx-auto justify-center items-center align-middle self-center extrainfo min-h-96">
-        <div className="mt-16  flex flex-wrap gap-16  rounded-lg p-4   bg-blue-500">
+      <div className=" mx-auto   justify-center items-center align-middle self-center extrainfo min-h-96">
+        <div className="mt-16  flex flex-wrap gap-10  rounded-lg p-4   bg-blue-500">
           {KeyValueGen({
             key: "happiness",
             value: pokeData1.base_happiness,
@@ -169,10 +169,23 @@ const Pokemonhero = ({ params }: { params: { id: string } }) => {
             key: "shape ",
             value: pokeData1.shape?.name,
           })}
+          {KeyValueGen({
+            key: "Egg groups ",
+            value:
+              " " +
+              pokeData1?.egg_groups?.map((item: any) => {
+                return item.name;
+              }),
+          })}
         </div>
-        <div>
-          
-        </div>
+        <div className="text-2xl mt-16   text-black font-bold">About</div>
+        <ul>
+          {pokeData1.flavor_text_entries?.slice(0, 10).map((item: any) => {
+            if (item.language.name === "en") {
+              return item.flavor_text;
+            }
+          })}
+        </ul>
       </div>
     </div>
   );

@@ -50,9 +50,9 @@ export default  function AppBar() {
             </div>
             <div>
               <Buttons
-                name="News"
-                route={"/news"}
-                onClick={() => router.push("/news")}
+                name="chatbot"
+                route={"/chatbot"}
+                onClick={() => router.push("/chatbot")}
               />
             </div>
           </div>
