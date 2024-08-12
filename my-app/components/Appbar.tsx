@@ -1,28 +1,30 @@
-"use client"
+"use client";
 import Image from "next/image";
-import Pokeball from "../assets/pokeball-png-45330.png";
+import Pokeball from "../assets/pokeball.png";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import Buttons from '../components/Buttons'
+import Buttons from "../components/Buttons";
 
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-export default  function AppBar() {
-     const router = useRouter();
-  const path = usePathname()
-  const [currentPage,setCurrentPage]=useState("")
-  useEffect(()=>{
+import DropDownMenu from "./DropDownMenu";
+export default function AppBar() {
+  const [dropdown,setDropdown]=useState(false)
+  const router = useRouter();
+  const path = usePathname();
+  const [currentPage, setCurrentPage] = useState("");
+  useEffect(() => {
     setCurrentPage(path);
-  },[path])
-   
+  }, [path]);
+
   return (
     <main>
       <div className="rootdiv flex justify-between px-5 bg-black w-full h-20 bg-gradient-to-r opacity-80 from-cyan-500 to-green-500">
         <div className="logodiv flex align-middle gap-5 items-center justify-center  ">
-          <div className="titlediv text-3xl font-bold text-white">
+          <div className="titlediv md:text-3xl text-xl font-bold text-white">
             Pokemapper
           </div>
-          <div className="imagediv">
+          <div className="imagediv max-w-7  md:max-w-72">
             <Image
               src={Pokeball}
               width={70}
@@ -31,16 +33,16 @@ export default  function AppBar() {
             />
           </div>
         </div>
-        {}
+
         <div className="navigations my-auto px-20">
-          <div className="flex gap-20 align-middle justify-center items-center ">
-            <div>
-              <Buttons
-                name="Home"
-                route={"/"}
-                onClick={() => router.push("/")}
-              />
-            </div>
+          <div onClick={()=>{
+            setDropdown(prevstate=>{return !prevstate})
+          }} className="flex cursor-pointer  text-3xl md:hidden  gap-20 align-middle justify-center items-center ">
+            ☰
+          </div>
+          {dropdown?<DropDownMenu onClick={()=>{setDropdown(false)}} /> :""}
+          <div className=" hidden md:flex gap-20 align-middle justify-center items-center ">
+            
             <div>
               <Buttons
                 name="PokeDex"

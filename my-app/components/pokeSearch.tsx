@@ -40,41 +40,51 @@ const Pokedex = () => {
   );
 
   return (
-    <div
-      className="mx-auto w-full self-center flex justify-center"
-      id="pokedex"
-    >
+    <div className="flex m-4 mx-auto w-full self-center   justify-center ">
       <div className="flex flex-col">
-        <input
-          type="search"
-          value={searchTerm}
-          onChange={handleSearch}
-          placeholder="Search Pokémon"
-        />
-
-        <ul className="max-h-16 overflow-scroll">
-          {searchTerm?filteredPokemon.map((pokeman: Pokemon) => (
-            <li
-              key={pokeman.id}
-              onClick={() => {
-                setSearchTerm(pokeman.name);
-                
-              }}
-              className="cursor-pointer"
+        <div className="flex gap-3 ">
+          <div>
+            <input
+              className="border-0 bg-gray-400 text-black placeholder:text-black rounded-xl px-6 py-3"
+              type="search"
+              value={searchTerm}
+              onChange={handleSearch}
+              placeholder="Search Pokémon"
+            />
+          </div>
+          <div>
+            <button
+              className="text-white rounded-lg bg-black p-3"
+              onClick={() => router.push("/pokedex/" + searchTerm)}
             >
-              <h2 className="card-title">{pokeman.name}</h2>
-            </li>
-          )):""}
-        </ul>
-        <button
-          className="text-white bg-black p-3"
-          onClick={() => router.push("/pokedex/" + searchTerm)}
-        >
-          search
-        </button>
+              search
+            </button>
+          </div>
+        </div>
+        <div>
+          <ul
+            className={`max-h-25 bg-white ${searchTerm?"py-4":""} px-4   min-w-64 absolute overflow-scroll`}
+          >
+            {searchTerm
+              ? filteredPokemon.map((pokeman: Pokemon) => (
+                  <li
+                    key={pokeman.id}
+                    onClick={() => {
+                      router.push("/pokedex/" + pokeman.id);
+                        setSearchTerm("")
+                    }}
+                    className="cursor-pointer"
+                  >
+                    <h2 className="card-title">{pokeman.name}</h2>
+                  </li>
+                ))
+              : ""}
+          </ul>
+        </div>
       </div>
     </div>
   );
 };
 
 export default Pokedex;
+
