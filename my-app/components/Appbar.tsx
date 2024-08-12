@@ -20,7 +20,7 @@ export default function AppBar() {
   return (
     <main>
       <div className="rootdiv flex justify-between px-5 bg-black w-full h-20 bg-gradient-to-r opacity-80 from-cyan-500 to-green-500">
-        <div className="logodiv flex align-middle gap-5 items-center justify-center  ">
+        <div onClick={()=>router.push("/")}  className="logodiv  cursor-pointer flex align-middle gap-5 items-center justify-center  ">
           <div className="titlediv md:text-3xl text-xl font-bold text-white">
             Pokemapper
           </div>

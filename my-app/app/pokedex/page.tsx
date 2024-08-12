@@ -54,7 +54,7 @@ export default function Home() {
   }
   return (
     <main>
-      <Pokedex></Pokedex>
+      <Pokedex />
       <div>
         <PokeCard pokeData={pokes} isLoading={loading} />
         <div className="mx-auto mb-14 w-full flex justify-center self-center">
