@@ -12,9 +12,9 @@ const HeroSection2 = () => {
           detailed information about each Pokémon species, including their
           stats, abilities, and evolutions. In this application, you can search
           for Pokémon, view their stats, and explore various attributes. Whether
-          you're a seasoned trainer or just starting your journey, our Pokedex
-          offers an intuitive and engaging way to discover and learn more about
-          Pokémon.
+          you `&apos;` re a seasoned trainer or just starting your journey, our
+          Pokedex offers an intuitive and engaging way to discover and learn
+          more about Pokémon.
         </p>
         <div className="text-left mx-auto max-w-2xl">
           <h3 className="text-2xl font-semibold text-gray-900 mb-4">

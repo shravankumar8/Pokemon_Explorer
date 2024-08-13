@@ -80,7 +80,7 @@ const Pokemonhero = ({ params }: { params: { id: string } }) => {
         }}
         className="bg-white hover:transition-transform duration-300 ease-in-out hover:animate-jump cursor-pointer"
       >
-        <img width={"110px"} src={imageUrl} alt="" />
+        <Image width={110} src={imageUrl} alt="" />
       </div>
     );
   }
@@ -130,15 +130,15 @@ const Pokemonhero = ({ params }: { params: { id: string } }) => {
               <SideImage imageUrl={pokeData.sprites?.front_female} />
             </div>
             <div>
-              <img width={"400px"} src={pokeImg} alt="" />
+              <Image width={400} src={pokeImg} alt="" />
             </div>
           </div>
 
           <div className="flex flex-col gap-5">
             <div className="mt-6  max-w-64">
-              {pokeData1.flavor_text_entries?.slice(0, 2).map((item: any) => {
+              {pokeData1.flavor_text_entries?.slice(0, 2).map((item: any,index:any) => {
                 if (item.language.name === "en") {
-                  return item.flavor_text;
+                <div key={index}>{item.flavor_text}</div>;
                 }
               })}
             </div>
@@ -171,8 +171,8 @@ const Pokemonhero = ({ params }: { params: { id: string } }) => {
           <div className="flex gap-16 flex-col">
             <div className="max-w-80">
               <div className="text-2xl text-black font-bold">Stats</div>
-              {pokeData.stats?.map((item: any) => (
-                <div key={item.stat.name} className="text-black type">
+              {pokeData.stats?.map((item: any, index: any) => (
+                <div key={index} className="text-black type">
                   <label>
                     {item.stat.name}{" "}
                     <progress value={item.base_stat} max="100">
@@ -187,7 +187,7 @@ const Pokemonhero = ({ params }: { params: { id: string } }) => {
               {pokeData.game_indices
                 ?.slice(0, 5)
                 .map((item: any, index: any) => (
-                  <div key={item.version.name} className="text-black type">
+                  <div key={index} className="text-black type">
                     <label>
                       {item.version.name}{" "}
                       <progress value={item.game_index} max="100">
@@ -238,7 +238,7 @@ const Pokemonhero = ({ params }: { params: { id: string } }) => {
               key: "Egg groups ",
               value:
                 " " +
-                pokeData1?.egg_groups?.map((item: any) => {
+                pokeData1?.egg_groups?.map((item: any, index: any) => {
                   return item.name;
                 }),
             })}

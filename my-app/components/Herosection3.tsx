@@ -9,8 +9,8 @@ const Herosection3 = () => {
         </h1>
         <p className="text-lg lg:text-xl mb-8">
           Unleash the full potential of your Pokémon UNITE gameplay with our
-          cutting-edge AI chat bot. Whether you're a seasoned trainer or just
-          starting out, PokeUnite AI Chat Bot offers expert guidance and
+          cutting-edge AI chat bot. Whether you `&apos;` re a seasoned trainer
+          or just starting out, PokeUnite AI Chat Bot offers expert guidance and
           valuable insights to enhance your strategy and performance.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

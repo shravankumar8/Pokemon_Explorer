@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import PokeCard from "@/components/PokeCard";
-
+import Image from "next/image";
 const PokemonPage = ({ params }: { params: { id: string } }) => {
   const id = params.id;
   const [pokeData, setPokeData] = useState<any>([]);
@@ -39,7 +39,7 @@ const PokemonPage = ({ params }: { params: { id: string } }) => {
         }}
         className="bg-white hover:transition-transform duration-300 ease-in-out hover:animate-jump cursor-pointer"
       >
-        <img width={"110px"} src={imageUrl} alt="" />
+        <Image width={110} src={imageUrl} alt="" />
       </div>
     );
   }
@@ -59,7 +59,7 @@ const PokemonPage = ({ params }: { params: { id: string } }) => {
           <SideImage imageUrl={pokeData.sprites?.front_female} />
         </div>
         <div>
-          <img width={"400px"} src={pokeImg} alt="" />
+          <Image width={400} src={pokeImg} alt="" />
         </div>
 
         <div className="flex flex-col gap-5">
@@ -96,8 +96,8 @@ const PokemonPage = ({ params }: { params: { id: string } }) => {
         <div className="flex gap-16 flex-col">
           <div className="max-w-80">
             <div className="text-2xl text-black font-bold">Stats</div>
-            {pokeData.stats?.map((item: any) => (
-              <div key={item.stat.name} className="text-black type">
+            {pokeData.stats?.map((item: any, index: any) => (
+              <div key={index} className="text-black type">
                 <label>
                   {item.stat.name}{" "}
                   <progress value={item.base_stat} max="100">

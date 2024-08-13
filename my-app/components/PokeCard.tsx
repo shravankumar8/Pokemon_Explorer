@@ -13,13 +13,14 @@ const PokeCard = ({ pokeData, isLoading }: any) => {
 
   return (
     <div className=" mx-auto max-w-[80%] justify-center parentdiv flex flex-wrap gap-10">
-      {pokeData.map((item: any) => (
+      {pokeData.map((item: any, index: any) => (
         <div
-          onClick={() => router.push("/pokedex/"+item.id)}
+          key={index}
+          onClick={() => router.push("/pokedex/" + item.id)}
           className="card-root py-5 cursor-pointer transition-transform duration-300 ease-in-out hover:animate-jump items-center  justify-center  min-w-[20%] rounded-lg bg-white"
         >
           <div className=" px-5 flex flex-col">
-            <img
+            <Image
               className="self-center bg-slate-300 rounded-lg"
               src={item.sprites.front_shiny}
               width={180}
@@ -29,9 +30,12 @@ const PokeCard = ({ pokeData, isLoading }: any) => {
             <div className="text-2xl font-bold font-ubuntu ">{item.name}</div>
 
             <div className="flex gap-3 flex-wrap mt-2">
-              {item.abilities.map((item: any) => {
+              {item.abilities.map((item: any,index:any) => {
                 return (
-                  <div className="text-black px-2 py-1 align-middle self-center justify-center bg-green-500 rounded-md">
+                  <div
+                    key={index}
+                    className="text-black px-2 py-1 align-middle self-center justify-center bg-green-500 rounded-md"
+                  >
                     {item.ability.name}
                   </div>
                 );

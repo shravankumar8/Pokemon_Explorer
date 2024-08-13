@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 interface Pokemon {
   name: string;
-  image: string;
-  type: string;
+
   id: number;
 }
 
 const Pokedex = () => {
-     const router = useRouter();
+  const router = useRouter();
   const [pokemon, setPokemon] = useState<Pokemon[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
 
@@ -20,10 +19,9 @@ const Pokedex = () => {
         promises.push(fetch(url).then((res) => res.json()));
       }
       const results = await Promise.all(promises);
-      const pokemonData: Pokemon[] = results.map((result: any) => ({
+      const pokemonData: Pokemon[] = results.map((result: any, index: any) => ({
         name: result.name,
-        image: result.sprites["front_default"],
-        type: result.types.map((type: any) => type.type.name).join(", "),
+
         id: result.id,
       }));
       setPokemon(pokemonData);
@@ -63,15 +61,17 @@ const Pokedex = () => {
         </div>
         <div>
           <ul
-            className={`max-h-25 bg-white ${searchTerm?"py-4":""} px-4   min-w-64 absolute overflow-scroll`}
+            className={`max-h-25 bg-white ${
+              searchTerm ? "py-4" : ""
+            } px-4   min-w-64 absolute overflow-scroll`}
           >
             {searchTerm
-              ? filteredPokemon.map((pokeman: Pokemon) => (
+              ? filteredPokemon.map((pokeman: Pokemon, index: any) => (
                   <li
-                    key={pokeman.id}
+                    key={index}
                     onClick={() => {
                       router.push("/pokedex/" + pokeman.id);
-                        setSearchTerm("")
+                      setSearchTerm("");
                     }}
                     className="cursor-pointer"
                   >
@@ -87,4 +87,3 @@ const Pokedex = () => {
 };
 
 export default Pokedex;
-
