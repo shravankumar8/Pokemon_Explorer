@@ -80,7 +80,7 @@ const Pokemonhero = ({ params }: { params: { id: string } }) => {
         }}
         className="bg-white hover:transition-transform duration-300 ease-in-out hover:animate-jump cursor-pointer"
       >
-        <Image width={110} src={imageUrl} alt="" />
+        <Image width={110} height={110} src={imageUrl} alt="" />
       </div>
     );
   }
@@ -103,6 +103,8 @@ const Pokemonhero = ({ params }: { params: { id: string } }) => {
          <div className="text-center">
            <h1 className="text-4xl z-40 font-bold mb-4">404 NOT FOUND</h1>
            <Image
+            width={110}
+            height={110}
              className="mx-auto z-0 animate-pulse"
              src={notFound}
              alt="404 Error: Pokémon Not Found"
@@ -130,7 +132,7 @@ const Pokemonhero = ({ params }: { params: { id: string } }) => {
               <SideImage imageUrl={pokeData.sprites?.front_female} />
             </div>
             <div>
-              <Image width={400} src={pokeImg} alt="" />
+              <Image width={400} height={400} src={pokeImg} alt="" />
             </div>
           </div>
 
