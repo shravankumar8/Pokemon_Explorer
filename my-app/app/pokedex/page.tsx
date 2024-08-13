@@ -44,7 +44,7 @@ export default function Home() {
       <div className="mx-auto flex items-center justify-center h-screen">
         <Image
           className="  animate-spin"
-          src={LoadingImg}
+          src={LoadingImg||""}
           width={50}
           height={50}
           alt="Picture of the author"

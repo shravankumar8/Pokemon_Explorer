@@ -26,7 +26,7 @@ export default function AppBar() {
           </div>
           <div className="imagediv max-w-7  md:max-w-72">
             <Image
-              src={Pokeball}
+              src={Pokeball||""}
               width={70}
               height={70}
               alt="Picture of the author"

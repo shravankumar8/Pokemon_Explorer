@@ -80,7 +80,7 @@ const Pokemonhero = ({ params }: { params: { id: string } }) => {
         }}
         className="bg-white hover:transition-transform duration-300 ease-in-out hover:animate-jump cursor-pointer"
       >
-        <Image width={110} height={110} src={imageUrl} alt="" />
+        <Image width={110} height={110} src={imageUrl||""} alt="" />
       </div>
     );
   }
@@ -89,7 +89,7 @@ const Pokemonhero = ({ params }: { params: { id: string } }) => {
        <div className="mx-auto flex items-center justify-center h-screen">
          <Image
            className="  animate-spin"
-           src={LoadingImg}
+           src={LoadingImg||""}
            width={50}
            height={50}
            alt="Picture of the author"
@@ -132,7 +132,7 @@ const Pokemonhero = ({ params }: { params: { id: string } }) => {
               <SideImage imageUrl={pokeData.sprites?.front_female} />
             </div>
             <div>
-              <Image width={400} height={400} src={pokeImg} alt="" />
+              <Image width={400} height={400} src={pokeImg||""} alt="" />
             </div>
           </div>
 

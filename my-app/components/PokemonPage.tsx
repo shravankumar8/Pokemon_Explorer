@@ -39,7 +39,7 @@ const PokemonPage = ({ params }: { params: { id: string } }) => {
         }}
         className="bg-white hover:transition-transform duration-300 ease-in-out hover:animate-jump cursor-pointer"
       >
-        <Image width={110} height={110} src={imageUrl} alt="" />
+        <Image width={110} height={110} src={imageUrl||""} alt="" />
       </div>
     );
   }
@@ -59,7 +59,7 @@ const PokemonPage = ({ params }: { params: { id: string } }) => {
           <SideImage imageUrl={pokeData.sprites?.front_female} />
         </div>
         <div>
-          <Image width={400} height={400} src={pokeImg} alt="" />
+          <Image width={400} height={400} src={pokeImg||""} alt="" />
         </div>
 
         <div className="flex flex-col gap-5">
